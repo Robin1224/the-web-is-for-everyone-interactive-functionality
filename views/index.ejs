@@ -23,11 +23,10 @@
 
 <section class="categories">
   <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
+    <% methods.forEach(method => { %>
+      <h3><%- method.title %></h3>
+      <p><%- method.duration %></p>
+     <% }) %>
   </ul>
 </section>
 
