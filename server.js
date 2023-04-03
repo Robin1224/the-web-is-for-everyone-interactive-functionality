@@ -10,10 +10,13 @@ const app = express(); // creating an instance of the express application
 app.set("view engine", "ejs"); // setting the view engine to EJS
 
 app.get("/", (request, response) => {
-  const url = process.env.API_URL;
+  const url = process.env.API_URL; // get the api url from the .env file
 
+  // use the axiosGet wrapper helper to perform a get request to the API
   const data = axiosGet(`${process.env.API_URL}/methods`, process.env.LOG_ERRORS).then((data) => {
-    console.log(data);
+    // console.log(data);
+
+    // if there wasn't an error, render the page
     if (data != "error") {
       response.render('index', data);
     }
